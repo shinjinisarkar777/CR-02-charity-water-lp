@@ -26,7 +26,11 @@ Fonts:
 /* Set up the main font and background color for the whole page */
 body {
   background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  /* 
+    Set the main font to Avenir.
+    If Avenir is not available, use Arial or a generic sans-serif font.
+  */
+  font-family: 'Avenir', Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #222;
@@ -34,10 +38,10 @@ body {
 
 /* Add a slight shadow and rounded corners to each section for depth */
 section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
+  background: none; /* Remove white background from all sections */
+  border-radius: 0;
+  box-shadow: none;
+  margin: 24px 10px;
   padding: 24px 16px;
 }
 
@@ -45,28 +49,40 @@ section {
 .hero {
   position: relative; /* Needed for overlay */
   /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
+  background-image: url('img/charitywater.jpg'); /* Use local hero image */
+  background-size: cover;        /* Fill the whole section */
+  background-position: center;   /* Center the image */
   background-repeat: no-repeat;
+  min-height: 100vh;             /* Fill the whole screen height */
+  width: 100vw;                  /* Fill the whole screen width */
+  margin: 0;                     /* Remove margin */
+  border-radius: 0;              /* Remove rounded corners */
   color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
+  text-align: left;          /* Center the text */
+  padding: 60px 20px 0 20px;     /* Padding at the top, no bottom padding */
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  /* Remove blue overlay/background */
+  background-blend-mode: normal; /* Remove blue overlay */
+  background-color: transparent; /* No blue background */
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+/* Make all h1 and h2 have wider letter spacing and smaller text size for beginners */
+h1 {
+  font-size: 1.2em; /* Smaller text */
+  font-weight: normal;
+  letter-spacing: 4px; /* Wider spacing between letters */
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1em; /* Smaller text */
+  font-weight: normal;
+  letter-spacing: 4px; /* Wider spacing between letters */
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* Style the subheadline */
@@ -136,6 +152,52 @@ section {
   margin-bottom: 20px;
 }
 
+/* Style for the jerry can logo in the top banner */
+.jerrycan-logo {
+  height: 28px;           /* Make the logo small */
+  vertical-align: middle; /* Align the logo with the text */
+  margin-right: 10px;     /* Space between logo and text */
+}
+
+/* Free Trial button styles for the top banner */
+.free-trial-btn {
+  float: right; /* Move the button to the right side */
+  background-color: #cedeeb; /* Button color */
+  color: #333; /* Dark grey text */
+  font-family: 'Avenir', Arial, sans-serif; /* Same font as banner */
+  letter-spacing: 2px; /* Same spacing as banner */
+  border: none;
+  border-radius: 8px; /* Less rounded for a more rectangular look */
+  padding: 4px 14px;  /* Smaller padding for a smaller button */
+  margin-right: 16px; /* Slightly less margin */
+  margin-top: 2px;
+  font-size: 0.9em;   /* Slightly smaller text */
+  font-weight: normal;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(46, 157, 247, 0.07);
+  transition: background 0.2s;
+}
+
+.free-trial-btn:hover {
+  background-color: #b5d3e6; /* Slightly darker on hover */
+}
+
+.top-banner {
+  background-color: #8c3839; /* Ensure banner is the correct color */
+  color: #fff;
+  text-align: left;
+  padding: 10px 0 10px 20px;
+  font-family: 'Avenir', Arial, sans-serif;
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+.top-banner::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /* 
   Media Queries for Responsive Design
   Media queries help make your website look good on different screen sizes,
@@ -146,53 +208,86 @@ section {
 @media (max-width: 600px) {
   /* Make hero section padding smaller on small screens */
   .hero {
-    padding: 32px 8px;
-    font-size: 1em;
+    padding: 40px 10px 0 10px; /* Less padding */
   }
 
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
+  /* Stack h1 and h2 on top of each other */
+  h1, h2 {
+    text-align: center; /* Centered text */
+    font-size: 1.5em;   /* Larger text size */
+    letter-spacing: 2px; /* Tighter letter spacing */
   }
 
-  /* Make subheadline font size smaller */
+  /* Center the subheadline text */
   .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
     text-align: center;
+    font-size: 1.2em;
   }
 
+  /* Make buttons full width and stack them */
+  .donate-button, .free-trial-btn {
+    width: 100%;         /* Full width */
+    margin: 10px 0;      /* Space between buttons */
+    padding: 12px 0;     /* Taller buttons */
+    font-size: 1.2em;    /* Larger text */
+  }
+
+  /* Stack sections vertically with less margin */
+  section {
+    margin: 10px 0;      /* Less margin */
+    padding: 20px 10px;  /* Less padding */
+  }
+
+  /* Make images in stories full width */
   .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
+    width: 100%;         /* Full width */
+    max-width: none;     /* Remove max-width */
+    height: auto;        /* Maintain aspect ratio */
+  }
+
+  .top-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 8px;
+    text-align: left;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .jerrycan-logo {
+    margin: 0 6px 0 0;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .top-banner span {
+    display: inline-block;
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60vw;
+  }
+
+  .free-trial-btn {
+    float: none;
+    display: inline-block;
+    margin: 0;
+    font-size: 0.8em;
+    padding: 3px 2px;
+    border-radius: 6px;
+    min-width: 0;
+    text-align: center;
+    width: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
+/* This media query applies styles when the screen is 601px wide or more (like on most computers) */
 @media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .impact-image {
-    width: 300px;
+  .hero h1 {
+    font-size: 3em; /* Much larger text for website view */
   }
 }
