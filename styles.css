@@ -66,6 +66,15 @@ section {
   background-color: transparent; /* No blue background */
 }
 
+/* Position the Donate Now button in the lower left corner of the hero section, but a bit higher */
+.cta-donate-btn {
+  position: absolute;
+  left: 32px;
+  bottom: 80px; /* Move the button further up from the bottom */
+  margin-top: 0;
+  z-index: 2;
+}
+
 /* Make all h1 and h2 have wider letter spacing and smaller text size for beginners */
 h1 {
   font-size: 1.2em; /* Smaller text */
@@ -76,7 +85,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1em; /* Smaller text */
+  font-size: 0.9em; /* Make all h2 text smaller */
   font-weight: normal;
   letter-spacing: 4px; /* Wider spacing between letters */
   margin-top: 0;
@@ -92,46 +101,103 @@ h2 {
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
 
-/* Story Section Styles */
+/* Charity: water style for hero section headlines and subheadlines */
+.hero-text h1 {
+  font-size: 2.2em; /* Modern, bold, but not too large */
+  font-weight: normal;
+  letter-spacing: 2.5px; /* Charity: water style spacing */
+  color: #fff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.hero-text h2 {
+  font-size: 0.8em; /* Small, but readable */
+  letter-spacing: 2.5px; /* Less spacing, more brand-accurate */
+  font-weight: normal;
+  color: #fff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* --- charity: water Branding for the rest of the page --- */
+
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  background-color: #fff; /* Clean white background */
   color: #222;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  margin: 32px auto;
+  padding: 32px 20px;
+  max-width: 700px;
   text-align: center;
-  padding: 30px 20px;
 }
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
+.story h2 {
+  color: #2E9DF7; /* Brand blue */
+  font-size: 1.3em;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
 }
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
+.impact-story {
+  background-color: #8BD1CB; /* Brand light blue */
   color: #222;
-  text-align: center;
-  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  margin: 32px auto;
+  padding: 32px 20px;
+  max-width: 700px;
 }
 
-/* Style the impact story image */
+.impact-story h2 {
+  color: #2E9DF7;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.impact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
 .impact-image {
   width: 100%;
   max-width: 320px;
   border-radius: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+}
+
+.call-to-action {
+  background-color: #FFC907; /* Brand yellow */
+  color: #222;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  margin: 32px auto 40px auto;
+  padding: 32px 20px;
+  max-width: 700px;
+  text-align: center;
+}
+
+.call-to-action h2 {
+  color: #2E9DF7;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
 }
 
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #4FCB53; /* Brand green */
   color: #fff;
-  padding: 14px 32px;
+  padding: 12px 28px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: bold;
   font-size: 1.1em;
   margin-top: 18px;
@@ -141,10 +207,31 @@ h2 {
   cursor: pointer;
 }
 
-/* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+  background-color: #159A48;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* CTA Donate Now button styled like Free Trial button */
+.cta-donate-btn {
+  background-color: #cedeeb; /* Same as Free Trial button */
+  color: #333;
+  font-family: 'Avenir', Arial, sans-serif;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  margin-top: 18px;
+  font-size: 1em;
+  font-weight: normal;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(46, 157, 247, 0.07);
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.cta-donate-btn:hover {
+  background-color: #b5d3e6;
 }
 
 /* Add some spacing between sections */
@@ -198,6 +285,93 @@ section {
   clear: both;
 }
 
+/* Simple modal styles for beginners */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black with opacity */
+}
+
+.modal-content {
+  background-color: #fff; /* White background */
+  margin: 10% auto; /* 10% from top, centered */
+  padding: 24px 20px;
+  border: 2px solid #2E9DF7; /* Brand blue border */
+  border-radius: 12px;
+  width: 90%; /* Almost full width on mobile */
+  max-width: 350px; /* Limit width on desktop */
+  box-shadow: 0 4px 16px rgba(46, 157, 247, 0.15);
+  text-align: center;
+}
+
+.close {
+  color: #2E9DF7; /* Brand blue */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -8px;
+  margin-right: -8px;
+}
+
+.close:hover {
+  color: #FFC907; /* Brand yellow on hover */
+}
+
+.modal input[type="email"] {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal button[type="submit"] {
+  background-color: #4FCB53; /* Brand green */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal button[type="submit"]:hover {
+  background-color: #159A48;
+}
+
+/* My Story Section Styles */
+.my-story {
+  background-color: #fff; /* Clean white background for clarity */
+  color: #222;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
+  margin: 32px auto;
+  padding: 32px 20px;
+  max-width: 700px;
+  text-align: center;
+}
+
+.my-story h2 {
+  color: #2E9DF7; /* Brand blue */
+  font-size: 1.3em;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.my-story p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* 
   Media Queries for Responsive Design
   Media queries help make your website look good on different screen sizes,
@@ -224,12 +398,19 @@ section {
     font-size: 1.2em;
   }
 
-  /* Make buttons full width and stack them */
-  .donate-button, .free-trial-btn {
-    width: 100%;         /* Full width */
+  /* Make buttons full width and stack them on small screens */
+  .donate-button, .free-trial-btn, .cta-donate-btn {
+    width: 100%;         /* Full width on mobile */
     margin: 10px 0;      /* Space between buttons */
-    padding: 12px 0;     /* Taller buttons */
-    font-size: 1.2em;    /* Larger text */
+    padding: 14px 0;     /* Taller buttons for touch */
+    font-size: 1.1em;    /* Slightly larger text */
+    box-sizing: border-box; /* Prevent overflow */
+    display: block;      /* Stack vertically */
+    text-align: center;  /* Center text */
+  }
+  .free-trial-btn {
+    float: none;         /* Remove float on mobile */
+    margin-right: 0;     /* Remove right margin */
   }
 
   /* Stack sections vertically with less margin */
@@ -245,43 +426,12 @@ section {
     height: auto;        /* Maintain aspect ratio */
   }
 
-  .top-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 8px;
-    text-align: left;
-    flex-wrap: nowrap;
-    min-width: 0;
-  }
-
-  .jerrycan-logo {
-    margin: 0 6px 0 0;
-    height: 20px;
-    flex-shrink: 0;
-  }
-
-  .top-banner span {
-    display: inline-block;
-    font-size: 1em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 60vw;
-  }
-
-  .free-trial-btn {
-    float: none;
-    display: inline-block;
-    margin: 0;
-    font-size: 0.8em;
-    padding: 3px 2px;
-    border-radius: 6px;
-    min-width: 0;
-    text-align: center;
-    width: auto;
-    white-space: nowrap;
-    flex-shrink: 0;
+  /* Position the Donate Now button in the lower left corner of the hero section */
+  .cta-donate-btn {
+    left: 10px;
+    bottom: 60px; /* Move up on mobile too */
+    padding: 6px 14px;
+    font-size: 0.9em;
   }
 }
 
@@ -289,5 +439,29 @@ section {
 @media (min-width: 601px) {
   .hero h1 {
     font-size: 3em; /* Much larger text for website view */
+  }
+
+  .impact-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    text-align: left;
+  }
+
+  /* Restore original button styles for larger screens */
+  .donate-button, .cta-donate-btn {
+    width: auto;
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1.1em;
+  }
+  .free-trial-btn {
+    float: right;
+    width: auto;
+    margin-right: 16px;
+    padding: 4px 14px;
+    font-size: 0.9em;
+    display: inline-block;
   }
 }

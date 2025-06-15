@@ -16,8 +16,23 @@
             alt="charity: water jerry can logo" 
             class="jerrycan-logo">
         <span>charity: water </span>
-        <!-- Free Trial button on the right side of the banner -->
-        <a href="#" class="free-trial-btn">Free Trial</a>
+        <!-- Subscribe button on the right side of the banner -->
+        <a href="#" class="free-trial-btn" id="freeTrialBtn">Subscribe</a>
+        <!-- Popup Modal for Free Trial -->
+        <div id="freeTrialModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <!-- Removed charity: water logo for a cleaner popup -->
+                <h2 style="color: #2E9DF7; margin-top: 0;">Subscribe for Updates</h2>
+                <p style="color: #222;">Join our email list to get inspiring stories and updates about how your support brings clean water to families in need.</p>
+                <form>
+                    <label for="email" style="color: #2E9DF7; font-weight: bold;">Email Address</label><br>
+                    <input type="email" id="email" name="email" required placeholder="you@email.com"><br><br>
+                    <button type="submit" style="background-color: #FFC907; color: #222; font-weight: bold;">Subscribe</button>
+                </form>
+                <p style="font-size: 0.9em; color: #888; margin-top: 16px;">100% of your information is safe. No spam, ever.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Hero Section: This is the main banner at the top of the page -->
@@ -27,39 +42,107 @@
             <!-- Main headline split into two lines, both h1 for emphasis -->
             <h1>Track Your Impact.</h1>
             <h1>Change a Family’s Future.</h1>
-            <!-- Subheadline -->
-            <p>Give clean water through donations you can follow every step of the way– transparent, fast, and purpose-driven.
-</p>
+            <!-- Subheadline split into two lines for clarity -->
+            <h2 style="color: #fff;">Give clean water through donations you can follow every step</h2>
+            <h2 style="color: #fff;">of the way– transparent, fast, and purpose-driven.</h2>
+            <!-- CTA Button -->
+            <a href="#" class="cta-donate-btn" id="donateBtn">Donate Now</a>
+            <!-- Popup Modal for Donate -->
+            <div id="donateModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeDonate">&times;</span>
+                    <!-- Removed charity: water logo for a cleaner popup -->
+                    <h2 style="color: #2E9DF7; margin-top: 0; margin-bottom: 10px;">Make a Donation</h2>
+                    <p style="color: #444; font-size: 1em; margin-bottom: 18px;">100% of your donation brings clean water to people in need.</p>
+                    <form style="margin-bottom: 0;">
+                        <label for="amount" style="color: #2E9DF7; font-weight: bold; display: block; margin-bottom: 6px;">Donation Amount</label>
+                        <input type="number" id="amount" name="amount" min="1" required placeholder="$50" style="width: 90%; padding: 8px; margin-bottom: 14px; border: 1px solid #ccc; border-radius: 6px;">
+                        <label for="donor-email" style="color: #2E9DF7; font-weight: bold; display: block; margin-bottom: 6px;">Email Address</label>
+                        <input type="email" id="donor-email" name="donor-email" required placeholder="you@email.com" style="width: 90%; padding: 8px; margin-bottom: 18px; border: 1px solid #ccc; border-radius: 6px;">
+                        <button type="submit" style="background-color: #FFC907; color: #222; font-weight: bold; border: none; border-radius: 6px; padding: 10px 24px; font-size: 1em; cursor: pointer; width: 100%;">Donate</button>
+                    </form>
+                    <p style="font-size: 0.9em; color: #888; margin-top: 14px;">100% of your donation funds clean water projects.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
+    <!-- Story Section: About charity: water -->
     <section class="story">
+        <!-- Section title in brand blue -->
+        <h2>Why Water?</h2>
+        <!-- Brand story paragraph -->
+        <p>
+            Every day, millions of people walk hours for dirty water. charity: water is on a mission to change that. Since 2006, we've funded clean water projects for over 17 million people in 29 countries. 100% of public donations go directly to water projects, and every project is shown on a map with photos and GPS.
+        </p>
+    </section>
+
+    <!-- Call-to-Action Section: Encourage visitors to join the mission -->
+    <section class="call-to-action">
+        <!-- Section title in brand blue -->
+        <h2>Join the Mission</h2>
+        <p>100% of your donation brings clean water to people in need. Together, we can end the water crisis.</p>
+    </section>
+
+    <!-- My Story Section: The Story of charity: water -->
+    <section class="my-story">
+        <!-- Section title in brand blue -->
         <h2>Our Story</h2>
         <p>
-         
+            charity: water began in 2006 with a simple mission: bring clean and safe drinking water to people in need around the world. Our founder, Scott Harrison, saw firsthand the impact of dirty water while traveling and wanted to make a difference. Since then, charity: water has funded thousands of water projects in 29 countries, helping over 17 million people. We believe in 100% transparency—every dollar donated goes directly to water projects, and every completed project is shown on a map with photos and GPS coordinates. Together, we can end the water crisis.
+        </p>
     </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+    <!-- Simple popup script for beginners -->
+    <script>
+    // Get elements
+    var modal = document.getElementById('freeTrialModal');
+    var btn = document.getElementById('freeTrialBtn');
+    var span = document.getElementById('closeModal');
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+    // When the user clicks the button, open the modal
+    btn.onclick = function(event) {
+      event.preventDefault(); // Prevent link from navigating
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Get elements for donate modal
+    var donateModal = document.getElementById('donateModal');
+    var donateBtn = document.getElementById('donateBtn');
+    var closeDonate = document.getElementById('closeDonate');
+
+    // When the user clicks the Donate button, open the donate modal
+    donateBtn.onclick = function(event) {
+      event.preventDefault();
+      donateModal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the donate modal
+    closeDonate.onclick = function() {
+      donateModal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of either modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+      if (event.target == donateModal) {
+        donateModal.style.display = "none";
+      }
+    }
+    </script>
 </body>
 </html>
